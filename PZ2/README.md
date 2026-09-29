@@ -1,0 +1,1 @@
+открывать register.html

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Регистрация — Крокодил</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Регистрация в «Крокодиле»</h1>
+    <p class="lead">Создайте аккаунт, чтобы играть с друзьями. Все поля обязательны.</p>
+
+    <form id="regForm" action="welcome.html" method="get" novalidate>
+
+      <div class="field">
+        <label for="login">Логин</label>
+        <input type="text" id="login" name="login" autocomplete="username" placeholder="croco_fan">
+        <small class="hint">3–20 символов: латиница, цифры, «_»; начинается с буквы</small>
+        <span class="error" data-for="login"></span>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="password">Пароль</label>
+          <!-- у паролей нет name, поэтому они не попадают в адресную строку при GET -->
+          <input type="password" id="password" autocomplete="new-password">
+          <small class="hint">Минимум 8 символов, заглавная, строчная буква и цифра</small>
+          <span class="error" data-for="password"></span>
+        </div>
+        <div class="field">
+          <label for="password2">Подтверждение пароля</label>
+          <input type="password" id="password2" autocomplete="new-password">
+          <span class="error" data-for="password2"></span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="fio">ФИО</label>
+        <input type="text" id="fio" name="fio" autocomplete="name" placeholder="Иванов Иван Иванович">
+        <small class="hint">Фамилия Имя [Отчество], только буквы и дефис</small>
+        <span class="error" data-for="fio"></span>
+      </div>
+
+      <fieldset class="field" id="genderBox">
+        <legend>Пол</legend>
+        <label class="opt"><input type="radio" name="gender" value="Мужской"> Мужской</label>
+        <label class="opt"><input type="radio" name="gender" value="Женский"> Женский</label>
+        <span class="error" data-for="gender"></span>
+      </fieldset>
+
+      <div class="row">
+        <div class="field">
+          <label for="birthdate">Дата рождения</label>
+          <input type="date" id="birthdate" name="birthdate">
+          <span class="error" data-for="birthdate"></span>
+        </div>
+        <div class="field">
+          <label for="country">Страна</label>
+          <select id="country" name="country">
+            <option value="">— выберите страну —</option>
+            <option>Беларусь</option>
+            <option>Россия</option>
+            <option>Украина</option>
+            <option>Казахстан</option>
+            <option>Польша</option>
+            <option>Литва</option>
+            <option>Германия</option>
+            <option>США</option>
+            <option>Другая</option>
+          </select>
+          <span class="error" data-for="country"></span>
+        </div>
+      </div>
+
+      <fieldset class="field" id="interestsBox">
+        <legend>Интересы (выберите хотя бы один)</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="interests" value="Шарады и пантомима"> Шарады и пантомима</label>
+          <label class="chip"><input type="checkbox" name="interests" value="Рисование"> Рисование</label>
+          <label class="chip"><input type="checkbox" name="interests" value="Настольные игры"> Настольные игры</label>
+          <label class="chip"><input type="checkbox" name="interests" value="Видеоигры"> Видеоигры</label>
+          <label class="chip"><input type="checkbox" name="interests" value="Музыка"> Музыка</label>
+          <label class="chip"><input type="checkbox" name="interests" value="Программирование"> Программирование</label>
+          <label class="chip"><input type="checkbox" name="interests" value="Кино"> Кино</label>
+          <label class="chip"><input type="checkbox" name="interests" value="Спорт"> Спорт</label>
+        </div>
+        <span class="error" data-for="interests"></span>
+      </fieldset>
+
+      <div class="field">
+        <label for="about">О себе</label>
+        <textarea id="about" name="about" rows="4" maxlength="500" placeholder="Какие слова вам удаётся показывать лучше всего?"></textarea>
+        <small class="hint"><span id="counter">0</span> / 500, минимум 10 символов</small>
+        <span class="error" data-for="about"></span>
+      </div>
+
+      <div class="actions">
+        <button type="reset" class="btn secondary">Сбросить</button>
+        <button type="submit" class="btn">Зарегистрироваться</button>
+      </div>
+    </form>
+  </main>
+  <script src="register.js"></script>
+</body>
+</html>

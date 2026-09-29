@@ -1,0 +1,153 @@
+:root {
+  --bg: #e9f0e4;
+  --card: #ffffff;
+  --ink: #16281c;
+  --muted: #5c6f62;
+  --accent: #2f7d4f;
+  --accent-dark: #22603c;
+  --line: #c9d6c6;
+  --hero: #1f4a32;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.5 "Trebuchet MS", Verdana, sans-serif;
+}
+a { color: inherit; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 12px; }
+
+/* ============ GRID: компьютер (по умолчанию) ============ */
+.page {
+  display: grid;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "header header header"
+    "hero   hero   top"
+    "rules  rules  top"
+    "modes  modes  modes"
+    "footer footer footer";
+}
+.header { grid-area: header; }
+.hero   { grid-area: hero; }
+.rules  { grid-area: rules; }
+.top    { grid-area: top; }
+.modes  { grid-area: modes; }
+.footer { grid-area: footer; }
+
+/* Общий вид блоков */
+.hero, .rules, .top, .modes {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+/* Шапка и навигация — FlexBox внутри Grid */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 4px;
+}
+.logo { font-size: 1.6rem; font-weight: bold; text-decoration: none; color: var(--accent); }
+.nav { display: flex; align-items: center; gap: 20px; }
+.nav a { text-decoration: none; }
+.nav a:not(.btn):hover { color: var(--accent); }
+
+/* Главный блок */
+.hero { background: var(--hero); color: #fff; }
+.hero h1 { font-size: 2.2rem; }
+.hero p { margin: 0 0 20px; color: #d3e6d9; max-width: 48ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.join { display: flex; gap: 8px; }
+.join input {
+  width: 160px;
+  padding: 10px 12px;
+  font: inherit;
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+.join input:focus { outline: 3px solid #9bd3b0; }
+
+/* Правила */
+.rules ol { margin: 0; padding-left: 20px; }
+.rules li { margin-bottom: 10px; }
+
+/* Рейтинг */
+.top ul { list-style: none; margin: 0; padding: 0; }
+.top li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.top li:last-child { border-bottom: 0; }
+
+/* Режимы: вложенный Grid */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card { padding: 16px; border: 2px solid var(--line); border-radius: 10px; }
+.card p { margin: 0; color: var(--muted); }
+
+/* Подвал */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 4px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  padding: 11px 22px;
+  font: inherit;
+  font-weight: bold;
+  color: #fff;
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+.btn.secondary { background: #fff; color: var(--accent); border-color: #fff; }
+.btn.small { padding: 6px 14px; }
+
+/* ============ Планшет: Grid остаётся, колонок 2 ============ */
+@media (max-width: 992px) {
+  .page {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "header header"
+      "hero   hero"
+      "rules  top"
+      "modes  modes"
+      "footer footer";
+  }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============ Телефон: Grid отключается, работает FlexBox ============ */
+@media (max-width: 600px) {
+  .page {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+  }
+  .header { flex-direction: column; align-items: flex-start; }
+  .nav { flex-wrap: wrap; gap: 8px 16px; }
+  .hero h1 { font-size: 1.7rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { text-align: center; }
+  .join input { flex: 1; width: auto; min-width: 0; }
+  .cards { display: flex; flex-direction: column; }
+  .footer { flex-direction: column; }
+}

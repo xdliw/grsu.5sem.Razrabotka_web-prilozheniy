@@ -1,0 +1,99 @@
+:root {
+  --bg: #e9f0e4;
+  --card: #ffffff;
+  --ink: #16281c;
+  --muted: #5c6f62;
+  --accent: #2f7d4f;
+  --accent-dark: #22603c;
+  --line: #c9d6c6;
+  --danger: #b93a2a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 24px 12px;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.5 "Trebuchet MS", Verdana, sans-serif;
+}
+.card {
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--card);
+  padding: 32px;
+  border-radius: 14px;
+  border-top: 8px solid var(--accent);
+}
+h1 { margin: 0 0 4px; font-size: 1.8rem; }
+.lead { margin: 0 0 24px; color: var(--muted); }
+
+.field { margin: 0 0 18px; padding: 0; border: 0; min-width: 0; flex: 1; }
+label, legend { display: block; font-weight: bold; margin-bottom: 6px; padding: 0; }
+.row { display: flex; gap: 16px; }
+
+input[type="text"], input[type="password"], input[type="date"], select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+}
+input:focus, select:focus, textarea:focus, .btn:focus-visible {
+  outline: 3px solid #9bd3b0;
+  border-color: var(--accent);
+}
+textarea { resize: vertical; }
+.hint { display: block; margin-top: 4px; color: var(--muted); font-size: .85rem; }
+
+.opt { display: inline-block; font-weight: normal; margin-right: 20px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-weight: normal;
+  margin: 0;
+  padding: 6px 12px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip:has(input:checked) { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.error { display: none; margin-top: 4px; color: var(--danger); font-size: .9rem; }
+.field.invalid .error { display: block; }
+.field.invalid input[type="text"], .field.invalid input[type="password"],
+.field.invalid input[type="date"], .field.invalid select, .field.invalid textarea {
+  border-color: var(--danger);
+}
+.field.valid input[type="text"], .field.valid input[type="password"],
+.field.valid input[type="date"], .field.valid select, .field.valid textarea {
+  border-color: var(--accent);
+}
+
+.actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px; }
+.btn {
+  display: inline-block;
+  padding: 11px 22px;
+  font: inherit;
+  font-weight: bold;
+  color: #fff;
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+.btn.secondary { background: #fff; color: var(--accent); }
+.btn.secondary:hover { background: #eef6f0; }
+
+.summary { margin: 0 0 8px; display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; }
+.summary dt { color: var(--muted); }
+.summary dd { margin: 0; }
+
+@media (max-width: 600px) {
+  .card { padding: 20px; }
+  .row { flex-direction: column; gap: 0; }
+  .actions { flex-direction: column-reverse; }
+  .btn { text-align: center; }
+}

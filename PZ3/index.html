@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Крокодил — играйте онлайн</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+
+    <header class="header">
+      <a class="logo" href="index.html">Крокодил</a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="#rules">Правила</a>
+        <a href="#modes">Режимы</a>
+        <a href="#top">Рейтинг</a>
+        <a class="btn small" href="register.html">Войти</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Показывай слова — друзья угадывают</h1>
+      <p>Онлайн-версия любимой party-игры. Создайте комнату, отправьте друзьям код и играйте где угодно.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#">Создать комнату</a>
+        <form class="join" action="#" method="get">
+          <input type="text" name="room" placeholder="Код комнаты" aria-label="Код комнаты">
+          <button class="btn secondary" type="submit">Войти</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="rules" id="rules">
+      <h2>Как играть</h2>
+      <ol>
+        <li><b>Выпадает слово.</b> Его видит только ведущий.</li>
+        <li><b>Ведущий показывает</b> слово жестами или рисунком, не произнося ни звука.</li>
+        <li><b>Остальные угадывают</b> в чате. Первый угадавший получает очко и становится ведущим.</li>
+      </ol>
+    </section>
+
+    <aside class="top" id="top">
+      <h2>Лучшие игроки недели</h2>
+      <ul>
+        <li><span>Алина</span><b>42</b></li>
+        <li><span>Максим</span><b>37</b></li>
+        <li><span>Дарья</span><b>31</b></li>
+        <li><span>Илья</span><b>28</b></li>
+        <li><span>Ксения</span><b>24</b></li>
+      </ul>
+    </aside>
+
+    <section class="modes" id="modes">
+      <h2>Режимы игры</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Пантомима</h3>
+          <p>Показывайте слова жестами. Камера и микрофон не нужны — достаточно описания в чате.</p>
+        </article>
+        <article class="card">
+          <h3>Рисование</h3>
+          <p>Ведущий рисует на общей доске, остальные угадывают слово по рисунку.</p>
+        </article>
+        <article class="card">
+          <h3>Командный</h3>
+          <p>Две команды соревнуются на время. Побеждает та, что угадала больше слов.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Крокодил</span>
+      <span>Учебный проект по разработке веб-приложений</span>
+    </footer>
+
+  </div>
+</body>
+</html>
